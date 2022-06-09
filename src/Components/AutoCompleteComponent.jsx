@@ -12,22 +12,21 @@ const AutoCompleteComponent = () => {
   const getCityData = () => {
     citiesApi().then((res) => {
       setCities(res?.data.data);
-      console.log("res:", res?.data.data);
     });
   };
 
   const getStreetData = (event, value) => {
-    console.log(event);
-    console.log(value);
     streetsApi(value.code).then((res) => {
       setStreets(res.data.data);
       setPage(0);
     });
   };
 
-  const mapStreets = streets.slice(page * 50, page * 50 + 50).map((street) => {
-    return <Streets streets={street.street} />;
-  });
+  const mapStreets = streets
+    .slice(page * 40, page * 40 + 40)
+    .map((street, index) => {
+      return <Streets streets={street.street} key={index} />;
+    });
 
   useEffect(() => {
     getCityData();
@@ -44,7 +43,7 @@ const AutoCompleteComponent = () => {
   };
 
   const next = () => {
-    if (streets.length / 50 > page) {
+    if (streets.length / 40 > page) {
       setPage(page + 1);
     }
   };
@@ -66,7 +65,7 @@ const AutoCompleteComponent = () => {
         <button onClick={prev} className='btn'>
           Prev
         </button>
-        <div className='page'>{page}</div>
+        <div className='page'>{page + 1}</div>
         <button onClick={next} className='btn'>
           next
         </button>

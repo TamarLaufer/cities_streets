@@ -47,7 +47,9 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
   overflow: auto;
+  overflow-wrap: break-word;
 }
 
 .streets {

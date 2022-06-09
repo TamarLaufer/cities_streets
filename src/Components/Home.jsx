@@ -3,11 +3,9 @@ import AutoCompleteComponent from "./AutoCompleteComponent";
 
 const Home = () => {
   return (
-    <Fragment>
-      <div className='container-home'>
-        <AutoCompleteComponent />
-      </div>
-    </Fragment>
+    <div className='container-home'>
+      <AutoCompleteComponent />
+    </div>
   );
 };
 
